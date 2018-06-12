@@ -3,7 +3,7 @@
     <city-header></city-header>
     <city-search></city-search>
     <city-list :cities="cities" :hot="hotCities"></city-list>
-    <city-alphabet></city-alphabet>
+    <city-alphabet :cities="cities"></city-alphabet>
   </div>
 </template>
 
@@ -34,10 +34,11 @@ export default {
     },
     handleGetCityInfoSucc (res) {
       res = res.data
-      if (res.ref && res.data) {
+      if (res.ret && res.data) {
         const data = res.data
         this.cities = data.cities
         this.hotCities = data.hotCities
+        console.log(this.hotCities)
       }
     }
   },
